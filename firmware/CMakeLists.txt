@@ -1,0 +1,20 @@
+cmake_minimum_required(VERSION 3.18)
+
+if(NOT DEFINED PICO_SDK_PATH)
+    if(DEFINED ENV{PICO_SDK_PATH})
+        set(PICO_SDK_PATH $ENV{PICO_SDK_PATH})
+    else()
+        message(FATAL_ERROR "PICO_SDK_PATH tanımlı değil")
+    endif()
+endif()
+include(${PICO_SDK_PATH}/external/pico_sdk_import.cmake)
+
+project(gt_super_controller C CXX ASM)
+set(CMAKE_C_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
+set(GT_FIRMWARE_VERSION "dev" CACHE STRING "Firmware version")
+
+pico_sdk_init()
+add_subdirectory(common)
+add_subdirectory(controller)
+add_subdirectory(gun)

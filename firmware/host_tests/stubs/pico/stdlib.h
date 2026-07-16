@@ -1,0 +1,3 @@
+#ifndef GT_HOST_TEST_PICO_STDLIB_H
+#define GT_HOST_TEST_PICO_STDLIB_H
+#endif
